@@ -1,0 +1,199 @@
+
+<div class="limiter">
+  <!-- <img src="./assets/img/coverpic1.jpg" class="img-fluid" alt="Responsive image" height="1200" > -->
+  <div class="container-login100">
+    <div class="header">
+      <div class="row">
+          <div class="col col-lg-2" >
+              <img src="./assets/img/ingram-logo.png" class="img-fluid" alt="Responsive image" height="1200" >
+          </div>
+          <div class="col col-lg-10" >
+              <img src="./assets/img/microsoft_logo.png" id="microsoft_logo"class="img-fluid" alt="Responsive image" height="1200" >
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-login100">
+    <div class="row">
+      <div class="wrap-login100  p-b-20">
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+            </ol>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img class="d-block w-100" src="./assets/img/landing-page-banner1.png" alt="First slide">
+              </div>
+              <div class="carousel-item">
+                <img class="d-block w-100" src="./assets/img/landing-page-banners-02.png" alt="Second slide">
+              </div>
+              <div class="carousel-item">
+                <img class="d-block w-100" src="./assets/img/landing-page-banners-03.png" alt="Third slide">
+              </div>
+              <div class="carousel-item">
+                <img class="d-block w-100" src="./assets/img/landing-page-banners-04.png" alt="fourth slide">
+              </div>
+            </div>
+      </div>
+      </div>
+    </div>
+    <div class="row">
+        <br/>
+        <!-- <div class="alert alert-info" >
+          <strong>Hi User ! </strong> Do you wish to pick off from where you left ? 
+        </div> -->
+ 
+        <div class="col col-md-9" >
+          <h2 class="p-title"><strong id="asseId">Why Cloud Backup &amp; DR</strong></h2 >
+          <div class="p-content">Today every business from Small to Enterprise is highly aware of 2 key things - Offsite Backup and Disaster Recovery. Cloud brings a very cost-effective solution for Backup &amp; DR as data loss and system outage generally happens due to hardware failure and many other reasons. Backup / DR on-premise is a very old school way and expensive. Cloud offers a strong protection meeting your RPO &amp; RTO needs while helping you protect from outages, data loss, and cyber-attacks.</div>
+          <img class="img-fluid" src="http://imsolutions.cloud/wp-content/uploads/2018/11/microsoft-post-banners-leaderboard-etc_Offer-3-1024x352.png" data-img-src="http://imsolutions.cloud/wp-content/uploads/2018/11/microsoft-post-banners-leaderboard-etc_Offer-3.png" alt="" title="microsoft post banners leaderboard etc_Offer">
+          <h2 class="p-title"><strong id="asseId">Advantages of Cloud Backup</strong></h2 >
+          <p class="p-content">The advantages of cloud backup are significant. As your data backup needs growth, you don’t have to worry about buying more devices, taking up more space or using more power in order to scale up. Cloud is also remarkably affordable: you only pay for what you use.</p>
+          <p class="p-content">Eg: When you use Microsoft Azure as a DR location, you only pay for storage and bandwidth during replication AND you will only pay for servers if and only if your on-premise are down.</p>
+          <img class="img-fluid" src="http://imsolutions.cloud/wp-content/uploads/2018/11/dr-745x205.png" data-img-src="http://imsolutions.cloud/wp-content/uploads/2018/11/dr.png" alt="" title="dr">
+        </div>
+        <div class="col col-md-3 " style="padding:0px;">
+              <form name="myForm" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                  <div class="login-form" style="padding:10px 10px 20px 10px;">
+                  <div class="form-group" id="formGroup"> 
+                      <label for="exampleInputEmail1" id="lableFiled"><b>Your Full Name</b></label>
+                      <input id="exampleInputEmail1" type="text" formControlName="fullname" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.fullname.errors }" />
+                      <span class="bar"></span>
+                      <div *ngIf="submitted && f.fullname.errors" class="invalid-feedback">
+                          <div *ngIf="f.fullname.errors.required">Full Name is required</div>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label for="exampleInputEmail1" id="lableFiled"><b>Designation*</b></label>
+                      <input id="exampleInputEmail1" type="text" formControlName="designation" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.designation.errors }" />
+                      <span class="bar"></span>
+                      <div *ngIf="submitted && f.designation.errors" class="invalid-feedback">
+                          <div *ngIf="f.designation.errors.required">Designation is required</div>
+                      </div>
+                  </div>
+
+                  <div class="form-group">
+                      <label for="exampleInputEmail1" id="lableFiled"><b>Contact Number *</b></label>
+                      <input id="exampleInputEmail1" type="number" formControlName="contactnumber" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.contactnumber.errors }" />
+                      <span class="bar"></span>
+                      <div *ngIf="submitted && f.contactnumber.errors" class="invalid-feedback">
+                          <div *ngIf="f.contactnumber.errors.required">Contact Number is required</div>
+                      </div>
+                  </div>
+
+                  <div class="form-group">
+                      <label for="exampleInputEmail1" id="lableFiled"><b>Email  Address*</b></label>
+                      <input id="exampleInputEmail1" type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                      <span class="bar"></span>
+                      <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                          <div *ngIf="f.email.errors.required">Email is required</div>
+                          <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                      </div>
+                  </div>
+  
+                  <div class="form-group">
+                      <button style="width:99%;" class="login100-form-btn"  > Begin the Assessment </button>
+                  </div>
+                </div>
+              </form>
+        </div>
+    </div>
+  </div>
+
+	
+
+    
+        <button type="button"  id = "isUserModalBtn" class="btn btn-demo" data-toggle="modal" data-target="#myModal">
+
+        </button>
+
+
+      
+
+<div class="modal right fade pull-right" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+<!--   
+
+        <div class="modal-body">
+            <div class="container-fluid">
+          <div class="row">
+              <div class="col-md-12">
+                  <div class="col-md-3"><i class="fa fa-user-circle "></i></div>
+                  <div class="col-md-6"> {{ IsUserName }}<br/>{{ IsUserMail }}  </div>
+              </div>
+          </div>
+        </div>
+          
+                <strong>Welcome back  <span style="color:midnightblue">{{ IsUserName }}</span> , </strong> <a href="businessinformation/{{ cid }}">click</a> here to continue to your session.
+       
+        </div> -->
+        <div class="modal-body">
+            <div class="container-fluid">
+              <div class="row isUserDiv">
+                    <div class="col-sm-2 isUserIcon">
+                        <i class="fa fa-user-circle "></i>
+                    </div>
+                    <div class="col-sm-9 isUserData">
+                        {{ IsUserName }}<br/>{{ IsUserMail }} 
+                    </div>
+              </div>
+              <br/>
+              Welcome back  <span style="color:midnightblue">{{ IsUserName }}</span> , Do you wish to continue your session?
+
+            </div>
+          </div>
+        <!-- Modal footer -->
+        <div class="modal-btns">
+          <button type="button" id = "session-close" class="btn btn-danger" data-dismiss="modal">Close</button>
+          <button type="button" id = "session-continue" class="btn btn-primary pull-right" >Continue</button>
+  
+        </div>
+  
+      </div>
+    </div>
+  </div>
+      
+      
+
+
+
+  <!-- Footer -->
+<footer class="page-footer font-small  darken-3" >
+
+    <!-- Footer Elements -->
+   
+    <div class="container">
+  
+      <!-- Grid row-->
+      <div class="row">
+  
+        <!-- Grid column -->
+      
+        <!-- Grid column -->
+  
+      </div>
+      <!-- Grid row-->
+  
+    </div>
+    <!-- Footer Elements -->
+  
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">
+        <p style="text-align: center;">© Ingram Micro Cloud<br>
+          All product names, logos, and brands are property of their respective owners. All company, product and service names used in this website are for identification purposes only. Use of these names, logos, and brands does not imply endorsement.</p>
+      <!-- <a href="https://mdbootstrap.com/education/bootstrap/"> Ingram Micro Cloud
+  
+        Power your digital transformation with innovative cloud products and services</a> -->
+    </div>
+    <!-- Copyright -->
+  
+  </footer>
+  <!-- Footer --> 
+</div>
+

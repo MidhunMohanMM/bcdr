@@ -1,0 +1,94 @@
+body{
+    margin: 0;
+    padding: 0;
+    color: #444;
+    outline: none;
+    font-family: 'Comfortaa', cursive;
+    font-size: 16px;
+  }
+  input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+  }
+  
+  
+  .color-blue{
+    color: #2376bc;
+  }
+  .color-white{
+    color: #fff;
+  }
+  .red{
+    color: #f13868;
+  }
+  .mt-15{
+    margin-top: 15px;
+  }
+  .mt-25{
+    margin-top: 25px;
+  }
+  .mt-50{
+    margin-top: 50px;
+  }
+  .mb-50{
+    margin-bottom: 50px;
+  }
+  .pt-20{
+    padding-top: 20px;
+  }
+  .nav-box{
+    background-color: #fff;
+    box-shadow: 0 1px 8px 3px rgba(0, 0, 0, 0.05);
+  }
+  .absolute{
+    position: absolute;
+    margin-top: 70px;
+    color: #fff;
+  }
+  .absolute h5{
+    line-height: 28px;
+  }
+  .absolute li{
+    line-height: 40px;
+    list-style: circle;
+  }
+  .absolute .list-unstyled{
+    padding-left: 30px !important;
+  }
+  
+  .list-box li{
+    margin-left: 30px;
+    list-style: circle;
+    line-height: 30px;
+  }
+  
+  
+  #particles-js{
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+  }
+  
+  .bg-gray{
+    background: #f4f4f4;
+  }
+  .hr, .hr2{
+    margin: 0 0 15px 0;
+    border-top: 1px solid rgba(35,118,188,.5);
+  }
+  .hr{
+    width: 20%;
+  }
+  .hr2{
+    width: 40%;
+  }
+  
+  
+  .desired li{
+    line-height: 28px;
+   list-style: decimal;
+   margin: 0 0 0 10px;
+   font-size: 15px;
+   font-weight: bold;
+  }

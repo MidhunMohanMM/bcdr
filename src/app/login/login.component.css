@@ -1,0 +1,289 @@
+
+/* header session */
+.limiter{
+    width: 80%; 
+ }
+ .header{
+     width: 100%;
+ }
+ #microsoft_logo{
+    float: right;
+ }
+ .isUserDiv{
+    padding:10px;
+    border:1px solid #c7ddf3;
+    border-radius:5px;
+    background-color: #e9ecef;
+ }
+ .itm-cntr{
+     text-align:center;
+ }
+ .isUserIcon {
+    text-align:center;
+     font-size:35px;
+     color:rgb(9, 9, 32);
+     padding-right:0px;
+ }
+ .isUserData{
+     padding-left:0px;
+ }
+ a{
+     text-decoration: none!important;
+ }
+ .wrap-login100{
+     width: 100%;
+ }
+ .fillWidth{
+     width: 100%;
+ }
+ .modal-btns {
+     border-top:1px solid #e9ecef;
+     padding:10px;
+ }
+ /* .modal.right.fade .modal-dialog {
+    margin-right:0px;
+    margin-top:0px;
+    border-radius:0px;
+
+}
+.modal.right.fade .modal-body{
+    height: calc(100vh - 130px);
+    overflow-y: auto;
+
+} */
+
+
+ #text{
+     /* display: block;
+     
+     font-family:  -apple-system, system-ui, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Fira Sans, Ubuntu, Oxygen, Oxygen Sans, Cantarell, Droid Sans, Apple Color Emoji, Segoe UI Emoji, Segoe UI Emoji, Segoe UI Symbol, Lucida Grande, Helvetica, Arial, sans-serif;
+     font-size: 24px;
+     line-height: 40px;
+     font-weight: 600; */
+     /* color: rgba(0,0,0,0.9); */
+     color: #666;
+     display: block;
+     margin-block-start: 1em;
+     margin-block-end: 1em;
+     margin-inline-start: 0px;
+     margin-inline-end: 0px;
+     margin: 0 0 1.5em;
+     padding: 0;
+ }
+ footer.page-footer .footer-copyright {
+     background-color: #fff;
+ }
+ .login100-form-btn{
+  background-color: #2196F3;
+ }
+ 
+  #Btn{
+     justify-content: center;
+     padding: 10px;
+  }
+  #btnAss{
+     line-height: 20px;
+     min-width: 88px;
+     /* border-radius: 10px; */
+  }
+ .p-content{
+     margin: 0 0 1.5em;
+     padding: 0;
+     box-sizing:
+     border-box
+ ;
+ color:
+ rgb(51, 51, 51)
+ ;
+ display:
+ block
+ ;
+ font-family:
+ "Libre Franklin", "Helvetica Neue", helvetica, arial, sans-serif
+ ;
+ font-size:
+ 16px
+ ;
+ font-weight:
+ 400
+ ;
+ display: flex;
+ justify-content: center;
+ 
+ -webkit-box-direction:
+ normal
+ ;
+ }
+ 
+ .p-title{
+     color: #666;
+     font-size: 20px;
+     font-size: 1.25rem;
+     font-weight: 300;
+ }
+ .p-title strong{
+     font-weight: 700;
+ }
+  #asseId{
+     font-weight: bold;
+     color: #666;
+     font-size: 27px;
+  }
+ /* footer */
+ #footer{
+     width: 80%;
+ }
+ 
+ #exampleInputEmail1{
+     border-left: none;
+     border-right: none;
+     border-top: none;
+ }
+ .login-form{
+ 
+ 
+         border-top: 6px solid  rgb(103, 58, 183)!important;
+         box-shadow:  0 0 1px 1px rgba(75, 74, 74, 0.6);
+         -moz-box-shadow: 0 0 1px 1px rgba(75, 74, 74, 0.6);
+         -webkit-box-shadow: 0 0 1px 1px  rgba(75, 74, 74, 0.6);
+         -o-box-shadow: 0 0 1px 1px  rgba(75, 74, 74, 0.6);
+         border-radius:5px;
+ }
+ .form-control:focus{
+     border-color:#3F51B5;
+ 
+     /* outline:0;
+     -webkit-box-shadow:none; */
+     /* box-shadow:none; */
+     border-bottom-color: blue;
+ 
+ }
+ 
+  @media (min-width: 320px) and (max-width: 480px) {
+ 
+     .limiter{
+         width: 100%;
+     }
+ }
+ @media (min-width: 480px) and (max-width: 700px) {
+   
+     .limiter{
+         width: 100%;
+     }
+ }
+ @media (min-width: 400px) and (max-width: 800px) {
+    
+     .limiter{
+         width: 100%;
+     }
+ }
+ #exampleInputEmail1{
+     border-left: none;
+     border-right: none;
+     border-top: none;
+ }
+ .form-control:focus{
+     border-color:#3F51B5;
+ 
+     /* outline:0;
+     -webkit-box-shadow:none; */
+     box-shadow:none;
+     border-bottom-color: blue;
+ 
+ }
+ #lableFiled{
+     padding-left: 4px;
+ 
+     color: #000;
+     font-size: 20px;
+     line-height: 135%;
+     width: 100%;
+ 
+ }
+ .freebirdFormviewerViewAccentBanner {
+ 
+     border-top-right-radius: 6px;
+     height: 8px!important;
+     width:100%
+ }
+ .freebirdSolidBackground {
+     background-color: rgb(103, 58, 183);
+     color: rgba(255, 255, 255, 1);
+ }
+ #formGroup{
+     padding-top: 10px;
+ }
+  
+ /* for form fileds */
+ .group               {
+     position:relative;
+     margin-bottom:30px;
+    }
+    input                 {
+     font-size:18px;
+     padding:10px 10px 10px 5px;
+     display:block;
+     width:100%;
+     border:none;
+     border-bottom:1px solid #757575;
+     border-radius:0px;
+    }
+    input:focus         { outline:none; }
+    
+    
+    .bar     { position:relative; display:block; width:100%; }
+    .bar:before, .bar:after     {
+     content:'';
+     height:2px;
+     width:0;
+     bottom:1px;
+     position:absolute;
+     background:#5264AE;
+     transition:0.2s ease all;
+     -moz-transition:0.2s ease all;
+     -webkit-transition:0.2s ease all;
+    }
+    .bar:before {
+     left:50%;
+    }
+    .bar:after {
+     right:50%;
+    }
+    
+    /* active state */
+    input:focus ~ .bar:before, input:focus ~ .bar:after {
+     width:50%;
+    }
+    
+    /* HIGHLIGHTER ================================== */
+    .highlight {
+     position:absolute;
+     height:60%;
+     width:100px;
+     top:25%;
+     left:0;
+     pointer-events:none;
+     opacity:0.5;
+    }
+    
+    /* active state */
+    input:focus ~ .highlight {
+     -webkit-animation:inputHighlighter 0.3s ease;
+     -moz-animation:inputHighlighter 0.3s ease;
+     animation:inputHighlighter 0.3s ease;
+    }
+    
+    /* ANIMATIONS ================ */
+    @-webkit-keyframes inputHighlighter {
+        from { background:#5264AE; }
+     to     { width:0; background:transparent; }
+    }
+    @-moz-keyframes inputHighlighter {
+        from { background:#5264AE; }
+     to     { width:0; background:transparent; }
+    }
+    @keyframes inputHighlighter {
+        from { background:#5264AE; }
+     to     { width:0; background:transparent; }
+    }
+   

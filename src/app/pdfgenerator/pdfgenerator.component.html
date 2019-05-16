@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<!-- <link href="assets_report/bootstrap.min.css" rel="stylesheet" type="text/css"/> -->
+	<!-- <link href="assets_report/main.css" rel="stylesheet" type="text/css"/> -->
+	<link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+	
+</head>
+<body id="pdfcontent">
+  <div >
+    <nav >
+      <div class="container" style="margin-top:10px;margin-bottom:10px;" >
+          <img  src="./assets/img/ingram-logo.png" alt="logo" >
+      </div>
+    </nav>
+  </div>
+
+<div class="intro" style="height:500px;background:#0077b4!important">
+  <div class="container" style="color:#39f;width:100%">
+	  <div class="row">
+		  <div class="col-md-12">
+        <div class="absolute">
+            <h2 class="mt-3 text-center" > <strong>Introduction</strong></h2>
+            <h5 class="mt-50">Thank  you  for  participating  in  the  Cloud  Infrastructure  &  BCDR  App.  This  document  will  provide  with  the  following  information  </h5>
+
+            <ul class="list-unstyled">
+              <li>Cloud  readiness  meter </li>
+              <li>BCDR  Readiness  meter </li>
+              <li>Cloud  BCDR  readiness </li>
+            </ul>
+
+            <h6 >If  you  have  any  questions  or  need  to  speak  with  an  expert  please  send  an  email  to  
+            <strong> iaas@ingrammicrocloud.me </strong> </h6>
+            <br>
+            <div >
+              <div >
+                  <button  class="btn btn-primary" (click) = "downloadPDF()">Download as PDF</button>
+              </div>
+            </div>
+        </div>
+		  </div>
+	  </div>
+  </div>
+</div>
+<img  class="pull-right " src="./assets/img/ingram-logo.png" alt="logo" >
+<div id="content" class="w-bg">
+	<div data-toggle="collapse" class="pad-15" >
+		<h3 class="text-center color-blue  accordion-toggle collapsed" id="abc" aria-expanded="false" data-toggle="collapse" href="#demo1"><strong>Cloud  Company  Strategy </strong></h3>
+	</div>
+  <div class="container mt-3 w-bg collapse show" id="demo1">
+	  
+    <div class="row">
+ 
+	  
+      <div class="col mt-25 col-md-6 ">
+
+        <h4>Cloud Readiness Overview</h4>
+        
+        <img *ngIf="cro_crm == 'l'  " class="col-md-6 float-right" src="./assets/img/low.png"  />
+        <img *ngIf="cro_crm == 'm'" class="  col-md-6 float-right" src="./assets/img/medium.png"  />
+        <img *ngIf="cro_crm == 'h'" class="col-md-6 float-right" src="./assets/img/high.png"  />
+
+        <p class="mt-50">{{ cro_answer }}</p>
+
+      </div>
+      <div class="col mt-25 col-md-6 cp">
+
+        <h4 >Application Readiness Overview</h4>
+
+        <img *ngIf="aro_crm == 'l' " class="  col-md-6 float-right" src="./assets/img/low.png"  />
+        <img *ngIf="aro_crm == 'm'" class="  col-md-6 float-right" src="./assets/img/medium.png"  />
+        <img *ngIf="aro_crm == 'h'" class=" col-md-6 float-right" src="./assets/img/high.png"  />
+
+        <p class="mt-50 ">{{ aro_answer }}</p>
+
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <div class="bg-gray mt-50">
+		<div class="col-md-12 bg-gray pad-15  " >
+				<h3 class="text-center color-blue accordion-toggle collapsed " data-toggle="collapse" href="#demo"><strong> Company  BCDR  Score </strong></h3>
+			</div>
+    <div class="container">
+      <div class="row">
+
+        <div class="col-12  mb-50 collapse" id="demo">
+          <div class="card">
+            <div class="card-body">
+              <div *ngIf="companybcdrri == 'l'">
+              <p class="card-title uk-text-danger"><strong> Low </strong></p>
+              <p class="card-text"> Your  applications  are  not  well  protected  against  data  loss,  ransomware  attacks.  In  case  of  a  disaster  your  business  will  be  impacted  and  downtime  will  be  high. </p>
+              </div>
+              <div *ngIf="companybcdrri == 'm'">
+                <p class="card-title uk-text-danger"><strong> Medium </strong></p>
+                <p class="card-text"> Your  applications  are  protected  but  are  still  prone  to  data  loss.  In  case  of  a  disaster  your  business  will  be  impacted  and  downtime  will  be  moderate. </p>			
+              </div>
+              <div *ngIf="companybcdrri == 'h'">
+                  <p class="card-title uk-text-danger"><strong> High </strong></p>
+                  <p class="card-text">  Your  applications  are  very  well  protected.  In  case  of  a  disaster  your  business  will  not  be  impacted  and  downtime  will  be  minimal.  </p>			
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- <div *ngFor = "let report of reports"></div> -->
+<div data-toggle="collapse" class="pad-15" >
+<h3 class="text-center color-blue mt-25 mb-25 accordion-toggle collapsed" data-toggle="collapse" href="#demo3"><strong> Cloud  Infrastructure  and  BCDR  Assessment</strong></h3>
+</div>
+<div class="container mb-50  collapse"  id="demo3"  *ngFor = "let report of reports; let i = index">
+
+	<div class="row" >
+		<div class="col-md-12 ">
+			<br>
+			<h4 class="text-center  accordion-toggle collapsed" data-toggle="collapse" [attr.href]="'#wrkload'+i"><b>Application  Name: {{ report.leads_workload.name }}</b></h4>
+		</div>
+		
+	</div>
+	<div class="collapse" id = "wrkload{{i}}">
+	<div class="row">
+		<div class="col-md-12 mt-50 ">
+			<div class="card pad-15">
+					{{ crm_note_heading }}
+			</div>
+		</div>
+	</div>
+
+	<br>
+
+
+	<div class="row mt-25">
+		<div class="col-md-4">
+			<div class="card">
+				<p class="text-center pt-20"><strong> Current  State </strong> </p>
+				<hr class="mt-4">
+				 <!-- <img *ngIf="m_r_crm[i].crm_resolved == 'low' || m_r_crm[i].crm_resolved == 'Not Found'" class="uk-align-center" src="./assets/images/cl.png"  />
+				 <img *ngIf="m_r_crm[i].crm_resolved == 'medium'" class="uk-align-center" src="./assets/images/cm.png"  />
+				 <img *ngIf="m_r_crm[i].crm_resolved == 'high'" class="uk-align-center" src="./assets/images/ch.png"  /> -->
+
+				 <img *ngIf= "report.crm == 'low' || report.crm == 'Not Found'" class="uk-align-center" src="./assets/images/cl.png"  />
+				 <img *ngIf="report.crm == 'medium'" class="uk-align-center" src="./assets/images/cm.png"  />
+				 <img *ngIf="report.crm == 'high'" class="uk-align-center" src="./assets/images/ch.png"  />
+				<!--<img id='imgToExport' src='gauge.png' style='display:none'/>  -->
+				<div class="card-body">
+				</div>
+			</div>
+		</div>
+<br>
+
+
+
+		<!-- <div class="col-md-4">
+			<div class="card">
+				<p class="text-center pt-20"><strong>Desired  State  </strong></p>
+				<hr class="mt-4">
+				<img class="uk-align-center" src="./assets/img/cr_high.png"  />
+				<br style="display:none">
+				<div class="card-body">
+						<br style="display:none">
+				</div>
+			</div>
+		</div> -->
+
+
+		<br style="display:none">
+
+
+<br>
+		<div *ngIf="report.crm == 'low' || report.crm == 'medium'||report.crm == 'high'|| report.crm == 'Not Found'" class="col-md-8 desired">
+			
+			<div  class="card">
+				<!-- <h5 class="text-center pt-20"> -->
+				<br style="display:none">
+				<br style="display:none">
+					<p  class="text-center pt-20"> <strong>How to improve your cloud readiness rating? </strong></p> 
+					<br/>
+				<!-- </h5> -->
+				<hr class="m-0">
+				<div class="card-body">
+					<ul class="list-unstyled">
+						<li *ngFor = "let crm_note of crm_note_side; let i = index">
+							{{ crm_note }}
+						</li>
+
+					</ul>
+					<!-- <ul *ngIf="report.cri == 'l' || report.cri == 'Not Found'" class="list-unstyled">
+						<li>Rearchitect  the  application  to  support  Windows  2008  64bit  and  above</li>
+						<li>Rearchitect  the  application  to  run  on  containers  or  serverless  architecture</li>
+						<li>Look  at  cloud  platform  that  supports  32-bit  platforms  (for  example:  IBM  Cloud  bare  metal  servers)</li>
+						<li>To  speak  with  cloud  expert,  drop  an  email  to  iaas@ingrammicrocloud.me</li>			
+					</ul>
+					<ul *ngIf="report.cri == 'm'" class="list-unstyled">
+							<li>If  your  application  uses  client-  server  architecture  we  need  to  consider  the  latency  between  client  and  server</li>
+							<li>Microsoft  Azure  with  Parallels  RAS  offers  cloud  based  VDI  solution  that  can  help  you  move  your  client  server  application  to  cloud  with  ease</li>
+							<li>If  your  application  is  business  critical  we  need  to  plan  the  migration  to  cloud</li>					
+							<li>  Planning  will  involve  migration  strategy,  end  user  impact  and  mitigation  process,  communication  plan  etc</li>			
+							<li>Please  speak  with  our  cloud  expert  by  sending  an  email  to  iaas@ingrammicrocloud.me</li>
+					</ul> -->
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<div class="row">
+			<div class="col-md-12 mt-50 ">
+				<div class="card pad-15">
+						{{ brm_note_heading }}
+				</div>
+			</div>
+		</div>
+
+	<div class="row mt-25">
+		<div class="col-md-4">
+			<div class="card">
+				<p class="text-center pt-20"><strong> Current  State </strong> </p>
+				<hr class="mt-4">
+				<img *ngIf="report.brm == 'low' || report.brm  == 'Not Found'" class="uk-align-center" src="./assets/images/bl.png"  />
+				 <img *ngIf="report.brm  == 'medium'" class="uk-align-center" src="./assets/images/bm.png"  />
+				 <img *ngIf="report.brm  == 'high'" class="uk-align-center" src="./assets/images/bh.png"  />
+				<!--<img id='imgToExport' src='gauge.png' style='display:none'/>  -->
+				<div class="card-body">
+				</div>
+			</div>
+		</div>
+
+
+
+<!-- 
+		<div class="col-md-4">
+			<div class="card">
+				<p class="text-center pt-20"><strong>Desired  State  </strong></p>
+				<hr class="mt-4">
+				<img class="uk-align-center" src="./assets/img/br_high.png"  />
+				<br style="display:none">
+				<div class="card-body">
+						<br style="display:none">
+				</div>
+			</div>
+		</div> -->
+
+
+		<br style="display:none">
+
+
+<br>
+		<div *ngIf="report.brm == 'low' || report.brm == 'medium' || report.brm == 'high' || report.brm == 'Not Found' " class="col-md-8 desired">
+			
+			<div class="card">
+				<!-- <h5 class="text-center pt-20"> -->
+				<br style="display:none">
+				<br style="display:none">
+					<p  class="text-center pt-20"> <strong>Why choose Microsoft Azure for your cloud backup strategy</strong></p> 
+					<br/>
+				<!-- </h5> -->
+				<hr class="m-0">
+				<div class="card-body">
+						<ul class="list-unstyled">
+								<li *ngFor = "let brm_note of brm_note_side; let i = index">
+									{{ brm_note }}
+								</li>
+		
+							</ul>
+					<!-- <ul *ngIf="report.bcdrri == 'l' || report.bcdrri == 'Not Found'" class="list-unstyled">
+						<li>Increase  the  frequency  of  backup.  Include  application  level  &  image  level  backup  as  part  of  your  backup  plan</li>
+						<li>Improve  your  HA  plan  by  including  clustering  (server  or  virtualization  level)  and  synchronous  replication</li>
+						<li>Improve  your  DR  strategy  by  including  either  synchronous  replication  or  virtualization  layer  replication</li>
+					</ul>
+					<ul *ngIf="report.bcdrri == 'm'" class="list-unstyled">
+						<li>Increase  the  frequency  of  backup.  Include  image  level  backup  as  part  of  your  backup  plan</li>
+						<li>Improve  your  HA  plan  by  including  clustering  (server  or  virtualization  level)</li>
+						<li>Improve  your  DR  strategy  by  including  either  synchronous  replication  or  virtualization  layer  replication</li>
+					</ul> -->
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<div class="row">
+			<div class="col-md-12 mt-50 ">
+				<div class="card pad-15">
+						{{ drm_note_heading }}
+				</div>
+			</div>
+		</div>
+
+	<div class="row mt-25">
+		<div class="col-md-4">
+			<div class="card">
+				<p class="text-center pt-20"><strong> Current  State </strong> </p>
+				<hr class="mt-4">
+				 <img *ngIf="report.drm  == 'low'" class="uk-align-center" src="./assets/images/dl.png"  />
+				 <img *ngIf="report.drm  == 'medium'" class="uk-align-center" src="./assets/images/dm.png"  />
+				 <img *ngIf="report.drm  == 'high'" class="uk-align-center" src="./assets/images/dh.png"  />
+				<!--<img id='imgToExport' src='gauge.png' style='display:none'/>  -->
+				<div class="card-body">
+				</div>
+			</div>
+		</div>
+
+
+
+
+		<!-- <div class="col-md-4">
+			<div class="card">
+				<p class="text-center pt-20"><strong>Desired  State  </strong></p>
+				<hr class="mt-4">
+				<img class="uk-align-center" src="./assets/img/cbr_high.png"  />
+				<br style="display:none">
+				<div class="card-body">
+						<br style="display:none">
+				</div>
+			</div>
+		</div> -->
+
+
+		<br style="display:none">
+
+
+<br>
+		<div  *ngIf="report.drm == 'low' || report.drm == 'medium' || report.drm == 'high' || report.drm == 'Not Found' " class="col-md-8 desired">
+			
+			<div class="card">
+				<!-- <h5 class="text-center pt-20"> -->
+				<br style="display:none">
+				<br style="display:none">
+					<p  class="text-center pt-20"> <strong>Why Microsoft Azure fits perfectly for your cloud DR setup </strong></p> 
+					<br/>
+				<!-- </h5> -->
+				<hr class="m-0"/>
+				<div class="card-body">
+						<ul class="list-unstyled">
+								<li *ngFor = "let drm_note of drm_note_side; let i = index">
+									{{ drm_note }}
+								</li>
+		
+							</ul>
+					<!-- <ul *ngIf="report.cbcdrri == 'l' || report.cbcdrri == 'Not Found'" class="list-unstyled">
+						<li>Installing  &  maintenance  of  tape  systems  takes  a  tremendous  investment.  Cloud  is  low  cost,  easy  to  setup  and  no  maintenance  cost</li>
+						<li>Tape  pose  a  potential  media  issue,  hey  gradually  wear  down  over  time.  On  the  other  hand,  cloud  storage  is  fast,  efficient  and  scale  to  any  limit.</li>
+						<li>Pay  for  cloud  storage  on  pay  as  you  go.  No  need  to  upfront  investment</li>
+					</ul>
+					<ul *ngIf="report.cbcdrri == 'm'" class="list-unstyled">
+						<li>Most  of  the  backup  software  has  cloud  connector  which  lets  you  store  backup  to  cloud</li>
+						<li>Using  cloud  as  backup  storage  lets  you  follow  3-2-1  backup  strategy</li>
+						<li>Pay  for  cloud  storage  on  pay  as  you  go.  No  need  to  upfront  investment</li>
+					</ul> -->
+				</div>
+			</div>
+		</div>
+
+	</div>
+	
+</div>
+
+
+
+</div>
+
+
+
+
+
+<div class="bg-gray">
+	<div data-toggle="collapse" class="pad-15" >
+	<h3 class="text-center color-blue accordion-toggle collapsed" data-toggle="collapse" href="#demo4"><strong> Improve Your BCDR Index </strong></h3>
+	</div>
+<div class="container list-box collapse" id="demo4">
+	<div class="row ">
+		<div class="col-md-12 ">
+			<p class="mt-25">In  order  to  have  a  better  BCDR  strategy,  you  can  choose  from  one  of  the  following  options: </p>
+			<div class="card ">
+				<div class="cardbody" style ="padding:20px;background-color: #f4f4f4;">
+			<p class="uk-text-bold uk-text-primary" ><strong>BCDR Strategy Using Veeam </strong> </p>
+			
+			<hr class="hr">
+			<p>Veeam  offers  backup  and  disaster  recovery  options  with  Microsoft  Azure  for  applications  running  in  your  on-premise.  It  also  protects  your  data  stored  in  Office  365.  Below  is  a  summary  of  your  investment  to  improve  your  BCDR  strategy </p>
+
+			
+			<table class="table mt-25 ">
+			  <tbody>
+			    <tr>
+			      <th scope="row">Environment </th>
+			      <th>Data  size  </th>
+			      <th>BCDR  investment  </th>
+			    
+			    </tr>
+			    <tr>
+			      <th scope="row">Office  365  </th>
+			      <td>{{office365_veeam_datasize}} GB</td>
+			      <td>{{office365_veeam_bcdr}} USD per month</td>
+			   
+			    </tr>
+			    <tr>
+			      <th scope="row">On-premise  applications </th>
+				  <td>{{onpremise_veeam_datasize}} GB</td>
+			      <td>{{onpremise_veeam_bcdr}} USD per month</td>
+			     
+			    </tr>
+			  </tbody>
+			</table>
+			
+			<!-- <p class="mt-25">Price  includes:</p>
+			<ul class="list-unstyled">
+				<li> Microsoft  Azure  to  store  data.  (VM,  storage,  network)</li>
+				<li> Bandwidth  (download  cost  of  100GB/month) </li>
+			</ul>
+			<p>Price  does  not  include  Veeam  licenses. </p> -->
+		</div>
+		</div>
+		</div>
+	</div>
+
+
+
+<div class="row">
+	<div class="col-md-12 mt-50">
+			<div class="card">
+					<div class="cardbody" style ="padding:20px;background-color: #f4f4f4;">
+		<p  class="uk-text-bold uk-text-primary"><strong>BCDR Strategy Using Veritas</strong></p>
+		<hr class="hr">
+		<p>Veritas Backup Exec has built in integration with Microsoft Azure which makes it easy to perform backup/restore or disaster recovery on cloud.</p>
+
+<p>Veritas SaaS backup allows you to automate Office 365 backup and store it in Veritas cloud.</p>
+		<table class="table mt-25">
+			<tbody>
+				<tr>
+					<th scope="row">Environment </th>
+					<th>Data size</th>
+					<th>Monthly  investment  </th>
+					
+				</tr>
+				<tr>
+					<th scope="row">Office  365  </th>
+					<td>{{office365_veritas_datasize}} GB</td>
+					<td>{{office365_veritas_bcdr }} USD per month</td>
+				
+				<tr>
+					<th scope="row">On-premise  applications </th>
+					<td>{{onpremise_veritas_datasize}} GB</td>
+					<td>{{onpremise_veritas_bcdr}} USD per month</td>
+				
+				</tr>
+			</tbody>
+		</table>
+		
+		<!-- <p class="mt-25">Price  includes:</p>
+		<ul class="list-unstyled">
+			<li>  Microsoft  Azure  to  store  data.  (VM,  storage,  network) </li>
+			<li>  Bandwidth  (download  cost  of  100GB/month) </li>
+		</ul> -->
+	</div>
+</div>
+	</div>
+</div>
+
+
+
+<div class="row">
+	<div class="col-md-12 mt-50">
+			<div class="card">
+					<div class="cardbody" style ="padding:20px;background-color: #f4f4f4;">
+		<p class="uk-text-bold uk-text-primary" ><strong> BCDR  strategy  using  Azure  Site  Recovery  and  Backup </strong></p>
+		<hr class="hr2">
+		<p>Azure Site recovery can perform disaster recovery on your on-premise physical/virtual infrastructure into Microsoft  Azure. It supports failover and failback options.Azure backup agent & server lets your backup data from laptop/server/storage devices and store them securely on Microsoft Azure. </p>
+
+	<br>
+		
+
+		<table class="table mt-25">
+
+			<tbody>
+				<tr>
+					<th  scope="row">Environment </th>
+					<th>Data  size  </th>
+					<th>Monthly  investment  </th>
+					
+				</tr>
+				<tr>
+					<th  scope="row">On-premise backup to Azure</th>
+					<td>{{onpremise_b2a_az_datasize}} GB</td>
+					<td>{{onpremise_b2a_az_monthly}} USD per month</td>
+			
+				</tr>
+				<tr>
+					<th  scope="row">On-premise DR to Azure</th>
+					<td>{{onpremise_d2a_az_datasize}} GB</td>
+					<td>{{onpremise_d2a_az_monthly}} USD per month</td>
+					
+				</tr>
+			</tbody>
+		</table>
+		
+		<!-- <p class="mt-25">Price  includes:</p>
+		<ul class="list-unstyled">
+			<li> Microsoft  Azure  to  store  data.  (VM,  storage,  network)</li>
+			<li> Azure  Site  Recovery  Agent  cost </li>
+			<li> Azure  Backup  software  cost  </li>
+		</ul> -->
+	</div>
+</div>
+	</div>
+</div>
+
+<div class="container">
+		<div class="row">
+			<div class="col-md-12 mt-50">
+				<h3 class="text-center color-blue"><strong>What to do next...</strong></h3>
+			</div>
+			<br>
+			<div class="col-12 mt-50 mb-50">
+				<div class="card">
+					<div class="card-body">
+						<div >
+						<!-- <p class="card-title uk-text-danger"><strong> Low </strong></p> -->
+						<p class="card-text">{{feed_answer}}</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+</div>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+  <!-- Trigger the modal with a button -->
+  <!-- <button type="button" id="downloadMsg" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Message Download</button> -->
+
+  <!-- Modal -->
+  <!-- <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+   
+        <div class="modal-body">
+          <p>This is a small modal.</p>
+        </div>
+  
+      </div>
+    </div>
+  </div> -->
+
+
+
+</body>
+</html>

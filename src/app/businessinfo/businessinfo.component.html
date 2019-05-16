@@ -1,0 +1,877 @@
+<div class="limiter">
+    <!-- Header -->
+    <div class="container-login100">
+      <div class="header">
+        <div class="row">
+            <div class="col col-lg-2" >
+                <img src="./assets/img/ingram-logo.png" class="img-fluid" alt="Responsive image" height="1200" >
+            </div>
+            <div class="col col-lg-10" >
+            </div>
+        </div>
+      </div>
+    </div>
+    <!-- carousel -->
+    <div class="container-login100">
+      <div class="wrap-login100  p-b-20">
+        <div class="row">
+          <div class="wrap-login100  p-b-20">
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+              <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+              </ol>
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img class="d-block w-100" src="./assets/img/landing-page-banner1.png" alt="First slide">
+                </div>
+                <div class="carousel-item">
+                  <img class="d-block w-100" src="./assets/img/landing-page-banners-02.png" alt="Second slide">
+                </div>
+                <div class="carousel-item">
+                  <img class="d-block w-100" src="./assets/img/landing-page-banners-03.png" alt="Third slide">
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="./assets/img/landing-page-banners-04.png" alt="fourth slide">
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- form -->
+        <div class="row" >
+          <div class="col col-lg-12" >
+            <section class="demo">
+              <h2 ><strong id="asseId"> Please fill out these fields! </strong></h2 >
+                <div>
+                  <form-wizard id="wizardFrom">
+
+                    <wizard-step [title]="'Company/Business Information'" [isValid]="infoForm.form.valid" (onNext)="onStep1Next($event)">
+                      <div class="pages">
+
+                      <h2 id="textHead">Please fill out these fields! - Company / Business Information </h2>
+                      <!-- <br> -->
+                      <form #infoForm="ngForm" id="innerForm"> 
+               
+                        <div class="form-group group">
+                            <label for="exampleInputEmail1 p-l-0" id="labelId">Company Name</label>
+                            <input type="text" class="inputchange"  id="exampleInputEmail1" name="company" aria-describedby="emailHelp" placeholder="Company Name"
+                              [(ngModel)]="company" required>
+                         
+                            <span class="bar"></span>
+                        </div>
+                        <div class="form-group float-label-control group" id="select-field">
+                            <label for="exampleInputEmail1 " class="p-l-0 m-b-0" id="labelId">Head Office Location</label>
+                            <div class="helper_div"><small>Specify your head quarters.</small> </div>                          
+                            <!-- <i class="fa fa-question-circle helpbtn " style="color:#1e7fb7; padding-right:13px;" title="Specify your head quarters" data-toggle="tooltip"></i> -->
+                            <select class="form-control col-md-5"     id="country" name="country" [(ngModel)] = "country" required>
+                              <option disabled value>Select your Country</option>
+                              <option  *ngFor = " let lists of clist" > {{ lists }}</option>  
+                            </select>
+                            <span class="bar"></span>
+                        </div>
+                        <label for="exampleInputEmail1 " class="p-l-0 m-b-0" id="labelId">Presence in No of Countries</label>
+                        <div class="helper_div"><small>Select the countries you operate in.</small> </div>
+                        <!-- <div class="helper_div"><small>Specify the number of countries you have offices in.</small> </div>  -->
+                        <!-- <i class="fa fa-question-circle helpbtn " style="color:#1e7fb7; padding-right:13px;" title="Specify the number of countries you have offices in" data-toggle="tooltip"></i> -->
+                        <br/>
+                        <div  class="col-md-5  p-l-0"> 
+                          <ng-multiselect-dropdown name = "headofclist"
+                            [placeholder]="'Select countries'"
+                            [data]="dropdownList"
+                            [(ngModel)]="presence"
+                            [settings]="dropdownSettings"
+                            (onSelect)="onItemSelect($event)"
+                            (onSelectAll)="onSelectAll($event)"
+                          >
+                          </ng-multiselect-dropdown>
+                        </div>
+               
+                        <br/>
+                        <div class="form-group group" >
+                            <label for="exampleInputEmail1" class="p-l-0 m-b-0" id="labelId">How many branch offices does your company have ?</label>
+                            <div class="helper_div"><small>Specify the total number of company branches.</small> </div> 
+                            <select class="form-control group  commonId" id="branchnum" name = "branches"  [(ngModel)]="branches" required>
+                              <option >1 - 5</option> 
+                              <option >5 - 10</option>  
+                              <option >10 - 20</option>  
+                              <option >20 - 50</option>  
+                              <option >50+</option>   
+                            </select>
+                            <span class="bar"></span>
+                        </div>
+                        <div>
+                            <label for="exampleInputEmail1 p-l-0" id="labelId">Company size*</label><br/>
+                            <br>
+                            <div class="funkyradio col-md-6 p-l-0" >
+                                <div class="funkyradio-primary">
+                                    <input type="radio" name="radio" id="radio2" value="Small  (1-99  employees)"  />
+                                    <label for="radio2">Small  (1-99  employees)</label>
+                                </div>
+                                <div class="funkyradio-primary">
+                                    <input type="radio" name="radio"  id="radio3" value="Medium  (100-499  employees)" />
+                                    <label for="radio3">Medium  (100-499  employees)</label>
+                                </div>
+                                <div class="funkyradio-primary">
+                                    <input type="radio" name="radio"  id="radio4" value="Large  (500  and  more  employees)" />
+                                    <label for="radio4">Large  (500  and  more  employees)</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div *ngIf="!IsSetCmpSize">
+                         
+                            <input type="text"  style="display:none" id="valid"  name ="valid" placeholder="Company Name"
+                            [(ngModel)]="valid" required/>
+                        </div>
+                        
+                        <!-- <br/> -->
+                        <div class="form-group float-label-control" id="select-field">
+                            <label for="exampleInputEmail1 p-l-0" id="labelId">Industry</label>
+                            <select class="form-control group  commonId" id="industry" name = "industry"  [(ngModel)]="industry" required>
+                              <option disabled value>Select your answer</option>
+                              <option *ngFor = "let industry of industries">{{industry}}</option>
+                              <option value="Others">Other - please mention</option>  
+                            </select>
+                        </div>
+                        <div  *ngIf="industry == 'Others'" class="form-group group"  data-validate = "">
+                            <input class="input100 inputchange"  type="text"   name = "industrychoice"   [(ngModel)] = "industryother"  >
+                            <span class="bar"></span>
+                        </div>
+                        <div >
+                          <label  for="exampleInputEmail1 p-l-0" id="labelId">How much workforce of your organization is on move or works remote on an average</label>
+                          <br>
+                          <input type="range" name="ageInputName" style="border-bottom:none;" id="ageInputId" value="0" min="0" max="100" oninput="ageOutputId.value = ageInputId.value+'%'" [(ngModel)] = "workforce">
+                            <output name="ageOutputName" id="ageOutputId"  class="p-l-10"> {{ workforce + '%'}} </output>
+                        </div>                    
+                      </form>
+                      </div>
+                    </wizard-step>
+
+
+
+
+                    <wizard-step [title]="'Regulatory Information'" [isValid]="RegufoForm.form.valid"  (onNext)="onStep2Next($event)">
+                      <div class="pages">
+                        <h2 id="textHead">Please fill out these fields! - Regulatory Information </h2>
+                          <form #RegufoForm="ngForm" id="innerForm">            
+                            <div class="form-group float-label-control" id="select-field">
+                                <label   for="exampleInputEmail1" class="p-l-0 m-b-0" id="labelId">Do you have any compliance requirement if data is hosted outside of your organization?</label>
+                                <div class="helper_div m-b-10"><small>Some countries have restrictions in hosting the data outside their country, if you are from such a country, please mark YES</small> </div>                          
+                                <!-- <i class="fa fa-question-circle helpbtn" style="color:#1e7fb7; padding-right:0px;" title="Some countries have restrictions in hosting the data outside their country, if you are from such a country, please mark YES" data-toggle="tooltip"></i> -->
+                   
+                                <div class="onoffswitch4">
+                                  <input type="checkbox" name="onoffswitch1" class="onoffswitch4-checkbox" [(ngModel)] = "compliance" id="myonoffswitch1" checked>
+                                  <label class="onoffswitch4-label" for="myonoffswitch1">
+                                      <span class="onoffswitch4-inner"></span>
+                                      <span class="onoffswitch4-switch"></span>
+                                  </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group float-label-control" id="select-field">
+                                <label  for="exampleInputEmail1" id="labelId" class="p-l-0 " >Do you have a policy around data privacy?</label>
+                                <!-- <div class="helper_div"><small>Some countries have restrictions in hosting the data outside their country, if you are from such a country, please mark YES</small> </div>                                                          
+                                <i class="fa fa-question-circle helpbtn " style="color:#1e7fb7; padding-right:13px;" title="Specify your head quarters" data-toggle="tooltip"></i> -->
+                                <div class="onoffswitch4">
+                                  <input type="checkbox" name="onoffswitch4" class="onoffswitch4-checkbox" [(ngModel)] = "policy" id="myonoffswitch5" checked>
+                                  <label class="onoffswitch4-label" for="myonoffswitch5">
+                                      <span class="onoffswitch4-inner"></span>
+                                      <span class="onoffswitch4-switch"></span>
+                                  </label>
+                                </div>
+                            </div>
+        
+                            <div class="form-group float-label-control" id="select-field">
+                                <label  for="exampleInputEmail1" id="labelId">Is your business subject to GDPR regulations?</label>
+                                <div class="onoffswitch4">
+                                  <input type="checkbox" name="onoffswitch4" class="onoffswitch4-checkbox" [(ngModel)] = "gdpr" id="myonoffswitch6" checked>
+                                  <label class="onoffswitch4-label" for="myonoffswitch6">
+                                      <span class="onoffswitch4-inner"></span>
+                                      <span class="onoffswitch4-switch"></span>
+                                  </label>
+                                  </div>
+                            </div>
+             
+                            <div>
+                                <label for="exampleInputEmail1" id="labelId">Business Model</label><br/>
+                                <br>
+                                <div class="funkyradio col-md-6 p-l-0">
+                                    <div class="funkyradio-primary">
+                                        <input type="radio" name="business_model" id="bmodel1" value="B2B"  />
+                                        <label for="bmodel1">B2B</label>
+                                    </div>
+                                    <div class="funkyradio-primary">
+                                        <input type="radio" name="business_model"  id="bmodel2" value="B2C" />
+                                        <label for="bmodel2">B2C</label>
+                                    </div>
+                                    <div class="funkyradio-primary">
+                                        <input type="radio" name="business_model"  id="bmodel3" value="Both" />
+                                        <label for="bmodel3">Both</label>
+                                    </div>
+                                </div>
+      
+                            </div>
+                            <div *ngIf="!IsSetBsnsModel">
+                
+                                <input type="text"  style="display:none" id="validate2"  name ="validate2" placeholder="Company Name"
+                                [(ngModel)]="validate2" required/>
+                            </div>
+                            <div>
+                                   
+                                <label for="exampleInputEmail1" class="p-l-0 m-b-0" id="labelId">Do you have customer portal/app?</label><br/>
+                                <div class="helper_div m-b-10"><small> If you have a ecommerce portal, or a customer login system , please specify YES</small> </div>                          
+                             
+                                <div class="funkyradio col-md-6 p-l-0">
+                            
+                                    <div class="funkyradio-primary">
+                                        <input type="radio" name="customer_portal" id="papp1" value="Yes"  />
+                                        <label for="papp1">Yes</label>
+                                    </div>
+                                    <div class="funkyradio-primary">
+                                        <input type="radio" name="customer_portal"  id="papp2" value="No" />
+                                        <label for="papp2">No</label>
+                                    </div>
+                                    <div class="funkyradio-primary">
+                                        <input type="radio" name="customer_portal"  id="papp3" value="Planning in future" />
+                                        <label for="papp3">Planning In Future</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div *ngIf="!IsSetCustPortal">
+                         
+                                    <input type="text"  style="display:none" id="validate3"  name ="validate3" placeholder="Company Name"
+                                    [(ngModel)]="validate3" required/>
+                            </div>
+                          </form>
+                      </div>
+                    </wizard-step>
+
+
+                    <wizard-step [title]="'Technology Information'"  [isValid]="TechinfoForm.form.valid" (onNext)="onStep3Next($event)">
+                      <div class="pages">
+                        <h2 id="textHead">Please fill out these fields! - Technology Information  </h2>
+                          <form #TechinfoForm="ngForm" id="innerForm">
+                            <div>
+                              <label for="exampleInputEmail1" id="labelId1">Are you considering cloud for your IT infrastructure needs?</label><br/>
+                              <div class="helper_div m-b-10"><small> Some companies have an active roadmap to migrate or use cloud for their internal applications and public portals. Are you one of them ?</small> </div>                          
+                              
+                              <div class="funkyradio col-md-6 p-l-0">
+                                  <div class="funkyradio-primary">
+                                      <input type="radio" name="radio6" id="radio6" value="Actively considering"  />
+                                      <label for="radio6">Actively considering</label>
+                                  </div>
+                                  <div class="funkyradio-primary">
+                                      <input type="radio" name="radio6"  id="radio7" value="Looking for specific cloud Information" />
+                                      <label for="radio7">Looking for specific cloud Information</label>
+                                  </div>
+                                  <div class="funkyradio-primary">
+                                      <input type="radio" name="radio6"  id="radio8" value="Not considering cloud" />
+                                      <label for="radio8">Not considering cloud</label>
+                                  </div>
+                              </div>
+                            </div>
+                            <div *ngIf="!IsSetCloud">
+                         
+                                    <input type="text"  style="display:none" id="validate4"  name ="validate4" placeholder="Company Name"
+                                    [(ngModel)]="validate4" required/>
+                            </div>
+                            <br>
+                            <div class="form-group float-label-control" id="select-field">
+                                <label   for="exampleInputEmail1" id="labelId">Which firewall do you currently use?</label>
+                                <div class="helper_div m-b-10"><small> Select the firewall you use for protecting your network and applications</small> </div>                          
+                                  
+                                <select class="form-control group  commonId"  id="firewall" name = "selectedFirewall"  [(ngModel)]="firewall"  required>
+                                    <option disabled value>Select your answer</option>
+                                    <option *ngFor = "let firewall of firewalls"> {{ firewall }} </option>
+                                    <option value="others">Others – please mention.</option> 
+                                </select> 
+                                <br/>
+                                <!-- <div  class="col-md-5  p-l-0"> 
+                                  <ng-multiselect-dropdown name = "headofclist"
+                                    [placeholder]="'Select countries'"
+                                    [data]="firewallList"
+                                    [(ngModel)]="presence"
+                                    [settings]="dropdownSettings"
+                                    (onSelect)="onItemSelect($event)"
+                                    (onSelectAll)="onSelectAll($event)"
+                                  >
+                                  </ng-multiselect-dropdown>
+                                </div> -->
+
+                            </div>
+                            <div  *ngIf="firewall == 'others'" >
+                                  <div   class="form-group group">
+                                    <input class="input100 inputchange" type="text" name = "firewallchoice" [(ngModel)]="firewallchoice" >
+                                    <span class="bar"></span>
+                                  </div>
+                            </div>
+                            <div class="form-group group" >
+                                <label for="exampleInputEmail1" id="labelId">What is your total data size (all appplications combined) (in GB's)</label>
+                                <input class="input100 inputchange"  type="number" name = "total_data_size" [(ngModel)]="total_data_size" required>
+                                <span class="bar"></span>
+                            </div>
+                            
+                            <div class="form-group group" >
+                                <label for="exampleInputEmail1" id="labelId">Total number of virtual machines OR physical servers being used?</label>
+                                <input class="input100 inputchange"  type="number" name = "total_virtual_machines" [(ngModel)]="total_virtual_machines" required>
+                                <span class="bar"></span>
+                            </div>
+                            <div class="form-group float-label-control" id="select-field">
+                            <label for="exampleInputEmail1" id="labelId">Do you use Office 365?</label>
+                                  <div class="onoffswitch4">
+                                  <input type="checkbox" name="onoffswitch4"  class="onoffswitch4-checkbox" [(ngModel)] = "office365" id="myonoffswitch9" checked>
+                                  <label class="onoffswitch4-label" for="myonoffswitch9">
+                                      <span class="onoffswitch4-inner"></span>
+                                      <span class="onoffswitch4-switch"></span>
+                                  </label>
+                                  </div>
+                            </div>
+                           
+                            <div *ngIf="office365 == true">
+                                  <div   class="form-group group">
+                                    <label for="exampleInputEmail1" id="labelId">How many mailboxes are hosted in Office 365?</label>
+                                    <input class="input100 inputchange" type="number" name = "mailboxes" [(ngModel)]="mailboxes" >
+                                    <span class="bar"></span>
+                                  </div>
+                                  <div  class="form-group group" >
+                                        <label for="exampleInputEmail1" id="labelId">What is the average Mailbox Size (GB) ?</label>
+                                        <input class="input100 inputchange"  type="number"  name = "average_mailbox_sizes" [(ngModel)]="average_mailbox_sizes" >
+                                        <span class="bar"></span>
+                                  </div>
+                                  <div  class="form-group group" >
+                                        <label for="exampleInputEmail1" id="labelId">How much data is stored in SharePoint online and OneDrive for business, combined (GB)?</label>
+                                        <input class="input100 inputchange" type="number"  name = "sharepoint" [(ngModel)]="sharepoint" >
+                                        <span class="bar"></span>
+                                  </div>        
+                            </div>
+                    
+                                    
+                            <div class="form-group float-label-control" id="select-field">
+                                <label  for="exampleInputEmail1" id="labelId">Do you have a backup strategy for your applications? (Yes/No)</label>
+                                <!-- <div class="helper_div m-b-10"><small> If your company is prepared with an active data backup plan and methods to recover a working system in a short span of tme, please mark YES</small> </div> -->
+                                <!-- <i class="fa fa-question-circle helpbtn " style="color:#1e7fb7; padding-right:13px;" title="If your company is prepared with an active data backup plan and methods to recover a working system in a short span of tme, please mark YES" data-toggle="tooltip"></i> -->
+                                <div class="onoffswitch4">
+                                  <input type="checkbox" name="onoffswitch4" class="onoffswitch4-checkbox" [(ngModel)] = "backup_strategy" id="myonoffswitch10" checked>
+                                  <label class="onoffswitch4-label" for="myonoffswitch10">
+                                      <span class="onoffswitch4-inner"></span>
+                                      <span class="onoffswitch4-switch"></span>
+                                  </label>
+                                  </div>
+                            </div>
+
+                            <div class="form-group float-label-control" id="select-field">
+                                <label  for="exampleInputEmail1" id="labelId">In your primary site, do you have high availability configured for your application? (Yes/No)</label>
+                                <!-- <div class="helper_div m-b-10"><small> If your company is prepared with an active data backup plan and methods to recover a working system in a short span of tme, please mark YES</small> </div> -->
+                                
+                                <!-- <i class="fa fa-question-circle helpbtn " style="color:#1e7fb7; " title=" If your company is prepared with an active data backup plan and methods to recover a working system in a short span of tme, please mark YES " data-toggle="tooltip"></i> -->
+                                <div class="onoffswitch4">
+                                  <input type="checkbox" name="onoffswitch4" class="onoffswitch4-checkbox" [(ngModel)] = "high_availability" id="myonoffswitch11" checked>
+                                  <label class="onoffswitch4-label" for="myonoffswitch11">
+                                      <span class="onoffswitch4-inner"></span>
+                                      <span class="onoffswitch4-switch"></span>
+                                  </label>
+                                  </div>
+                            </div>
+
+                            <div class="form-group float-label-control" id="select-field">
+                                <label for="exampleInputEmail1" id="labelId">Do you have a business continuity and disaster recovery plan for your company?</label>
+                                <div class="helper_div m-b-10"><small> If your company is prepared with an active data backup plan and methods to recover a working system in a short span of tme, please mark YES</small> </div>
+                                
+                                <!-- <i class="fa fa-question-circle helpbtn " style="color:#1e7fb7; padding-right:13px;" title="If your company is prepared with an active data backup plan and methods to recover a working system in a short span of tme, please mark YES" data-toggle="tooltip"></i> -->
+                                <div class="onoffswitch4">
+                                  <input type="checkbox" name="onoffswitch4" class="onoffswitch4-checkbox" [(ngModel)] = "disaster_recovery_setup" id="myonoffswitch12" checked>
+                                  <label class="onoffswitch4-label" for="myonoffswitch12">
+                                      <span class="onoffswitch4-inner"></span>
+                                      <span class="onoffswitch4-switch"></span>
+                                  </label>
+                                  </div>
+                            </div>
+                          </form>
+                      </div>
+                    </wizard-step>
+
+ 
+
+                    <wizard-step [title]="'Workloads'" [isValid]="WorkinfoForm.form.valid" >
+                      <div class="pages">
+                        <h2 id="textHead">Please fill out these fields! - Workloads  </h2>
+                        <br>
+                        <div id="formrepeat0" class="formrepeat" >
+                          <div id="barw0" class="barw" style="display:none;background-color: #eeeff1;padding: 9px;border-bottom: 1px solid #bfbfbf;">
+                            <label class="work" id="work0" style="font-weight: bold;"></label>
+                            <button type="button" style="float:right;margin-right:40px;margin-left:40px;padding: 2px 7px;border-radius: 3px!important;color:white!important;padding:2px 7px; background-color:#1976d2!important;font-family:Poppins-Regular, sans-serif" class="remnew " ><i class="fa fa-trash "></i> </button>
+                            <button type="button" style="float:right;padding: 2px 7px;border-radius: 3px!important;color:white!important;padding:2px 7px; background-color:#1976d2!important;display:none;font-family:Poppins-Regular, sans-serif" class="flipbtn "  id="btn0" ><i class="fa fa-edit"></i> </button> 
+                          </div>
+                        <form #WorkinfoForm="ngForm" id="form0" style="margin-top:15px;">                                
+                          <div class="remove" style="display: none;">
+                            <label style="margin-right:55%;font-size:18px;"><b>Enter New Workload Details</b></label>
+                              <button  type="button" uk-tooltip="Remove new Workload"  class="btn btn-primary remnew " style="padding: .64rem 0.4rem;" >
+                                  <i class="fa fa-trash "></i>   Cancel This Workload
+                              </button>
+                              <br/>
+                          </div> 
+                          <!-- <input  type="hidden" value="1" name="evaluatorsid"  > -->
+                          <input  type="number" style="display:none;" [(ngModel)] = "cid" value = "{{cid}}" name="leadsid">
+                          <div class="form-group group" >
+                              <label  for="exampleInputEmail1" id="labelId">Name of your application</label>
+                              <input class="input100 name inputchange"  type="text" name="name" id="name0" placeholder="Enter name of your application" > 
+                          </div>
+                          <div class="form-group float-label-control" id="select-field">
+                                <label for="exampleInputEmail1" id="labelId">Where is the application running?</label>
+                                <div class="helper_div m-b-10"><small>Select the infrastructure type on which your application is running</small> </div>
+                                
+                                <!-- <i class="fa fa-question-circle helpbtn " style="color:#1e7fb7; padding-right:13px;" title="Select the infrastructure type on which your application is running" data-toggle="tooltip"></i> -->
+                                <select class="form-control group  commonId app_running"    name="app_running" id="app_running0" >
+                                    <option disabled value>Select your answer</option>
+                                    <!-- <option  *ngFor = " let running_apps of app_runnings" > {{ running_apps }}</option>   -->
+                            
+                                    
+                                    <option value="Physical">Physical</option>
+                                    <option value="Hyper-V">Hyper-V</option>
+                                    <option value="VMWare">VMWare</option>       
+                                    <!-- <option value="OpenStack">OpenStack</option>  
+                                    <option value="KVM Citrix">KVM Citrix</option>    
+                                    <option value="Hyper-Converged">Hyper-Converged</option>     -->
+                                </select>
+                          </div>
+                          <div class="form-group float-label-control" id="select-field">
+                              <label for="exampleInputEmail1" id="labelId">What is the application authentication model?</label>
+                              <!-- <i class="fa fa-question-circle helpbtn " style="color:#1e7fb7; padding-right:13px;" title="Does it connect to an external authentication system ?" data-toggle="tooltip"></i> -->
+                              <div class="helper_div m-b-10"><small>Does it connect to an external authentication system ?</small> </div>
+                    
+                              <select class="form-control group  commonId"     name="auth" >
+                                <option disabled value>Select your answer</option>
+                                <!-- <option  *ngFor = " let auth of auths"  value="{{ auth }}"> {{ auth }}</option>   -->
+
+                                <option value="Active Directory">Active Directory</option>
+                                <!-- <option value="SSO with public platform">SSO with public platform</option>
+                                <option value="LDAP">LDAP</option>        -->
+                                <option value="In-built Authentication">In-built Authentication</option>  
+                              </select>
+                          </div>
+                          <div class="form-group float-label-control" id="select-field">
+                              <label for="exampleInputEmail1" id="labelId">Which operating system is the application running on?</label>
+                                <select class="form-control group  commonId os"     name="os" id="os0" >
+                                  <option  disabled value>Select your answer</option> 
+                                  <option value="Windows 2003 ">Windows 2003</option>
+                                  <option value="Windows 2003 R2">Windows 2003 R2</option>
+                                  <option value="Windows 2008 ">Windows 2008</option>       
+                                  <option value="Windows 2008 R2">Windows 2008 R2</option>  
+                                  <option value="Windows 2012/2012 R2 ">Windows 2012/2012 R2</option>  
+                                  <option value="Windows 2016 ">Windows 2016</option>  
+                                  <option value="Windows XP/7/8.1/10 ">Windows XP/7/8.1/10</option>  
+                                  <option value="Ubuntu ">Ubuntu</option>  
+                                  <option value="Red Hat ">Red Hat</option>  
+                                  <option value="SUSE ">SUSE</option>  
+                                  <option value="Linux based ">Linux based</option>   
+                              </select>
+                          </div>
+                          <div style="display:none" class="osother" id="osother0">
+                              <div class="funkyradio col-md-6">
+                                  <div class="funkyradio-primary">
+                                      <input type="radio" class="bit1" name="osart" id="bit1" value="64 Bit"  />
+                                      <label class="bit1f" for="bit1">64 Bit</label>
+                                  </div>
+                                  <div class="funkyradio-primary">
+                                      <input class="bit2" type="radio" name="osart"  id="bit2" value="32 Bit" />
+                                      <label class="bit2f" for="bit2">32 Bit</label>
+                                  </div>
+                              </div>
+
+                          </div>
+                          <div>
+                            <label for="exampleInputEmail1" id="labelId">How do users access the application?</label><br/>
+                              <div class="funkyradio col-md-6 p-l-0">
+                                  <div class="funkyradio-primary">
+                                      <input class="user1" type="radio" name="useraccess" id="user1" value="Browser"  />
+                                      <label class="user1f" for="user1">Browser</label>
+                                  </div>
+                                  <div class="funkyradio-primary">
+                                      <input class="user2" type="radio" name="useraccess"  id="user2" value="Client" />
+                                      <label class="user2f" for="user2">Client</label>
+                                  </div>
+                                  <div class="funkyradio-primary">
+                                      <input class="user3" type="radio" name="useraccess"  id="user3" value="Mobile app" />
+                                      <label class="user3f" for="user3">Mobile app</label>
+                                  </div>
+                              </div>
+                          </div>
+
+                          <div class="form-group float-label-control" id="select-field">
+                              <label for="exampleInputEmail1" id="labelId">Which database is used by the application?</label>
+                              <select class="form-control group  commonId database"    id="database0" name="database"  >
+                                <option disabled value>Select your answer</option>
+                                <!-- <option  *ngFor = " let database of databases"  value="{{ database }}"> {{ database }}</option>   -->
+                                              <option value="MSSQL">MSSQL</option>
+                                              <option value="NoSQL">NoSQL</option>
+                                              <option value="MySQL">MySQL</option> 
+                                              <option value="Mongo DB">Mongo DB</option>   
+                                              <option value="DynamoDB">DynamoDB</option>     
+                                              <option value="Sybase">Sybase</option> 
+                                              <option value="PostgreSQL">PostgreSQL</option> 
+                                              <option value="DB2">DB2</option> 
+                                              <option value="Oracle">Oracle</option> 
+                                              <option value="HANA">HANA</option> 
+                                              <option value="Does not use DB">Does not use DB</option>
+                                <option value="others">Others – please specify</option>
+                              </select>
+                          </div>
+                          <div  style="display:none" id="databaseother0" class="databaseother form-group" data-validate = "">
+                              <input type="text" class="inputchange"  id="databaseval" name="database1" aria-describedby="emailHelp" placeholder="Enter Database">  
+                          </div>
+                          <div class="form-group float-label-control " id="select-field" >
+                              <label  for="exampleInputEmail1" id="labelId">What best describes your application?</label>
+                              <!-- <i class="fa fa-question-circle helpbtn " style="color:#1e7fb7; padding-right:13px;" title="Your application could be developed or purchased for multiple purposes, please specify the closest purpose" data-toggle="tooltip"></i> -->
+                              <div class="helper_div m-b-20"><small>Your application could be developed or purchased for multiple purposes, please specify the closest purpose</small> </div>
+                              
+                              <!-- <select class="form-control group  commonId"    name="description" >
+                                <option disabled value>Select your answer</option>
+                                <option value="Core">Core: your business runs on this application (ex: ERP)</option>
+                                  <option value="Internal departmental app">Internal Departmental App: it’s an application running on top of your core application OR uses data from core application (ex: CRM, HRMS, Reporting tool)</option>
+                                  <option value="CX /Communication & Collaboration App">CX /Communication & Collaboration App: it’s an application for your internal employee processes (ex: e-commerce, external portal)</option> 
+                                
+                              </select> -->
+                        
+                            <div class="custom-control custom-radio m-b-10">
+                                <input type="radio" id="customRadio1" value = "Core" name="description" class="custom-control-input customRadio1">
+                                <label class="custom-control-label customRadio1f" for="customRadio1">Core: your business runs on this application (ex: ERP)</label>
+                            </div>
+
+                            <div class="custom-control custom-radio m-b-10">
+                                <input type="radio" id="customRadio2" value = "Internal departmental app" name="description" class="custom-control-input customRadio2">
+                                <label class="custom-control-label customRadio2f" for="customRadio2">Internal Departmental App: it’s an application running on top of your core application OR uses data from core application (ex: CRM, HRMS, Reporting tool)</label>
+                            </div>
+
+                            <div class="custom-control custom-radio m-b-10">
+                                <input type="radio" id="customRadio3" value = "CX /Communication & Collaboration App" name="description" class="custom-control-input customRadio3">
+                                <label class="custom-control-label customRadio3f" for="customRadio3">CX /Communication & Collaboration App: it’s an application for your internal employee processes (ex: e-commerce, external portal)</label>
+                            </div>
+                          </div>
+                          <div class="form-group float-label-control" id="select-field">
+                              <label for="exampleInputEmail1" id="labelId">How critical is this application? </label>
+                              
+                              <select class="form-control group  commonId"   name="critical"  >
+                                <option disabled value>Select your answer</option>
+                                <!-- <option  *ngFor = " let critical of criticals"  value="{{ critical }}"> {{ critical }}</option>   -->
+
+                              <option value="HIGH - Should be live 24x7 | All users impacted">HIGH - Should be live 24x7 | All users impacted</option>
+                              <!-- <option value="MEDIUM - should be fine with 2-4-hour downtime | Non-critical users impacted">MEDIUM - should be fine with 2-4-hour downtime | Non-critical users impacted</option> -->
+                              <option value="LOW- should be fine with 1 day of downtime | Few non-critical users impacted">LOW- should be fine with 1 day of downtime | few non-critical users impacted</option>
+                              </select>
+                          </div>
+
+                          <div class="form-group float-label-control" id="select-field">
+                              <label for="exampleInputEmail1" id="labelId">Is this application part of your backup strategy? </label>
+                              <div class="helper_div m-b-10"><small>Mark YES ,if your application has a need to be backed up</small> </div>
+                            
+                              <!-- <i class="fa fa-question-circle helpbtn " style="color:#1e7fb7; padding-right:13px;" title=" Mark YES ,if your application has a need to be backed up" data-toggle="tooltip"></i> -->
+                                <div class="onoffswitch4">
+                                <input type="checkbox" name="backup" class="onoffswitch4-checkbox backup" value="Yes" id="backup0" >
+                                <label class="onoffswitch4-label backupf"  for="backup0">
+                                    <span class="onoffswitch4-inner"></span>
+                                    <span class="onoffswitch4-switch"></span>
+                                </label>
+                                </div>
+                          </div>
+                          <div  style="display:none"  id="backupYes0" class="backupYes">
+                            <div class="form-group float-label-control" id="select-field">
+                                <label for="exampleInputEmail1" id="labelId">How frequency is the application backed up?  </label>
+                                
+                                <select  class="form-control group  commonId"  name="backupfrequency" >
+                                  <option disabled >Select your answer</option>
+                                  <option  hidden>0</option>
+                                  <!-- <option  *ngFor = " let backupfrequency of backupfrequencys"  value="{{ backupfrequency }}"> {{ backupfrequency }}</option>   -->
+
+                                  <option  hidden>0</option>
+                                  <option >Multiple times a day</option>
+                                  <option >Once a day</option>
+                                  <option >Once a week</option>
+                                </select>
+                            </div>
+                            <div class="form-group float-label-control" id="select-field">
+                                <label for="exampleInputEmail1" id="labelId">What is the type of backup?  </label>
+                                
+                                <select class="form-control group  commonId"  name="backuptype" >
+                                  <option disabled selected="selected">Select your answer</option>
+                                  <option  hidden>0</option>
+                                  <!-- <option  *ngFor = "let backuptype of backuptypes"  value="{{ backuptype }}"> {{ backuptype }}</option>   -->
+
+                                  <option  hidden>0</option>
+                                  <option >Image backup</option>
+                                  <!-- <option >Disk backup</option> -->
+                                  <option >Application backup</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group float-label-control" id="select-field">
+                                <label for="exampleInputEmail1" id="labelId">How do you backup the application ? </label>
+                                
+                                <select class="form-control group  commonId" name="backuphow"  >
+                                  <option disabled selected="selected">Select your answer</option>
+                                  <option  hidden>0</option>
+                                  <!-- <option  *ngFor = "let backuphow of backuphows"  value="{{ backuphow }}"> {{ backuphow }}</option>   -->
+
+                                  <option  hidden>0</option>
+                                        <option >Shared</option>
+                                        <option >Tape</option>
+                                        <option >Cloud</option>
+                                        <!-- <option >Directly to tape</option>
+                                        <option >Directly to cloud</option>
+                                        <option>Directly to disk</option> -->
+                                </select>
+                            </div>
+                          </div>
+  
+                          <div class="form-group float-label-control" id="select-field">
+                              <label for="exampleInputEmail1" id="labelId">Is the application part of your High Availability (HA) setup ?  </label>
+                              <div class="helper_div m-b-10"><small>If the application is setup in a way that downtime is out of question, please mark YES</small> </div>
+                              <!-- <i class="fa fa-question-circle helpbtn " style="color:#1e7fb7; padding-right:13px;" title="If the application is setup in a way that downtime is out of question, please mark YES" data-toggle="tooltip"></i> -->
+                                <div class="onoffswitch4">
+                                <input type="checkbox" name="hasetup" class="onoffswitch4-checkbox hasetup" value="Yes"  id="hasetup0" >
+                                <label class="onoffswitch4-label hasetupf" for="hasetup0">
+                                    <span class="onoffswitch4-inner"></span>
+                                    <span class="onoffswitch4-switch"></span>
+                                </label>
+                                </div>
+                          </div>
+  
+                          <div style="display:none" id="hasetupYes0" class="hasetupYes ">
+                            <div class="form-group float-label-control" id="select-field">
+                                <label for="exampleInputEmail1" id="labelId">Which replication method is used to achieve high availability?</label>
+                                
+                                <select  class="form-control group  commonId"   name="hasetupreplication"  >
+                                  <option disabled selected="selected">Select your answer</option>
+                                  <option  hidden>1</option>
+                                  <!-- <option  *ngFor = "let hasetupreplication of hasetupreplications"  value="{{ hasetupreplication }}"> {{ hasetupreplication }}</option>   -->
+                                  <option >Server clustering</option>
+                                  <option >Virtualization level clustering</option>
+                                  <option >Application level sync replication</option>
+                                  <option >Application level async replication</option>
+                                  <option >Backup and restore</option>
+                                </select>
+                            </div>
+                          </div>
+  
+                          <div class="form-group float-label-control" id="select-field">
+                              <label for="exampleInputEmail1" id="labelId">Is the application part of your Disaster Recovery (DR) set? </label>
+                              <div class="helper_div m-b-10"><small>Mark YES, if the application is already being backed up using various methods</small> </div>
+                              
+                              <!-- <i class="fa fa-question-circle helpbtn " style="color:#1e7fb7; padding-right:13px;" title="Mark YES, if the application is already being backed up using various methods" data-toggle="tooltip"></i> -->
+                            <div class="onoffswitch4">
+                                <input type="checkbox" name="drsetup" class="onoffswitch4-checkbox drsetup" value="Yes" id="drsetup0" >
+                                <label class="onoffswitch4-label drsetupf" for="drsetup0">
+                                    <span class="onoffswitch4-inner"></span>
+                                    <span class="onoffswitch4-switch"></span>
+                                </label>
+                            </div>
+                          </div>
+                          <div style="display:none" id="drsetupYes0" class="drsetupYes uk-margin-large-left">
+                              <div class="form-group float-label-control" id="select-field">
+                                  <label for="exampleInputEmail1" id="labelId">Which replication method is used to achieve Disaster Recovery?​ </label>
+                                  
+                                  <select class="form-control group  commonId" name="drsetupreplication" >
+                                    <option disabled selected="selected">Select your answer</option>
+                                    <option  hidden>0</option>
+                                    <!-- <option  *ngFor = "let drsetupreplication of drsetupreplications"  value="{{ drsetupreplication }}"> {{ drsetupreplication }}</option>   -->
+                                    <option >Virtualization replication</option>
+                                    <option >Application level Sync replication</option>
+                                    <option >Application level Async replication</option>
+                                    <option >Backup and restore</option>
+                                    <option >Copy & shift the tape drives</option>
+                                  </select>
+                              </div>
+                              <div class="form-group float-label-control" id="select-field">
+                                  <label for="exampleInputEmail1" id="labelId">Where is the secondary (DR site) site located? </label>
+                                  
+                                  <select class="form-control group  commonId"   name="drsetuplocation" >
+                                    <option disabled selected="selected">Select your answer</option>
+                                    <option  hidden>0</option>
+                                    <!-- <option  *ngFor = "let drsetuplocation of drsetuplocations"  value="{{ drsetuplocation }}"> {{ drsetuplocation }}</option>   -->
+
+                                    <option >Same building</option>
+                                    <option >Same city</option>
+                                    <option >Different city</option>
+                                    <option >Different country</option>
+                                  </select>
+                              </div> 
+                              <div class="form-group float-label-control" id="select-field">
+                                  <label for="exampleInputEmail1" id="labelId">How are the two locations (primary & secondary) connected? </label>
+                                  
+                                  <select class="form-control group  commonId drsetupconnection" name="drsetupconnection" id="drsetupconnection0" >
+                                    <option disabled selected>Select your answer</option>
+                                    <option  hidden>0</option>
+                                    <!-- <option  *ngFor = "let drsetupconnection of drsetupconnections"  value="{{ drsetupconnection }}"> {{ drsetupconnection }}</option>   -->
+
+                                    <option >VPN</option>
+                                    <option >Dedicated lease line</option>
+                                    <option >Dark fiber network</option>
+                                    <option value="others">Others-please specify</option>
+                                  </select>
+                              </div> 
+                              
+                              <div   style="display:none" id="drsetupconnectionother0"  class="drsetupconnection wrap-input100 validate-input m-t-10 m-b-10" data-validate = "">
+                                  <input class="input100"  type="text"   name="drsetupconnection1"  >
+                                  <span class="focus-input100" data-placeholder=""></span>
+                                  
+                              </div>
+                          </div>
+
+                          <div class="form-group float-label-control" id="select-field">
+                            <label for="exampleInputEmail1" id="labelId">What is the total size of the application (in GB's)? </label>
+                            
+                            <select class="form-control group  commonId"  name="size"  >
+                              <option disabled value>Select your answer</option>
+                              <!-- <option  *ngFor = "let size of sizes"  value="{{ size }}"> {{ size }}</option>   -->
+                                    <option>Less than 50GB</option>
+                                    <option>51-150GB</option>
+                                    <option >151-500GB</option> 
+                                    <option >501-1TB</option>
+                                    <option >More than 1TB</option>
+                            </select>
+                          </div>  
+                          <div class="form-group float-label-control" id="select-field">
+                              <label for="exampleInputEmail1" id="labelId">Who accesses this application? </label>
+                              <!-- <div class="helper_div m-b-10"><small>The kind of employees who access this application.</small> </div> -->
+                              <!-- <i class="fa fa-question-circle helpbtn " style="color:#1e7fb7; padding-right:13px;" title="The kind of employees who access this application" data-toggle="tooltip"></i> -->
+                              <select  class="form-control group  commonId whoaccess" name="whoaccess" id="whoaccess0" >
+                                <option disabled value>Select your answer</option>
+                                <!-- <option  *ngFor = "let whoaccess of whoaccesss"  value="{{ whoaccess }}"> {{ whoaccess }}</option>   -->
+
+                                    <option >CXO & Management</option>
+                                    <option >Finance</option>
+                                    <option >Sales</option> 
+                                    <option >Operations</option>
+                                    <option >HR</option> 
+                                    <option value="others">Others-please specify</option>
+                              </select>
+                          </div>
+  
+                          <div style="display:none"  id="whoaccessother0" class="whoaccessother form-group" data-validate = "">
+                              <input class="input100 inputchange"  type="text"  name="whoaccess1" >
+                              <span class="focus-input100" data-placeholder=""></span>
+                              
+                          </div>
+                        </form> 
+                      </div>
+                    <div id="repeat"></div>
+  
+                        <div >
+                          <button  class="btn btn-primary addnew" >Add new Workload</button>
+                        </div>
+                        <div class="container-login100-form-btn ">
+                          <button style="width:200px;" (click) = "submit()"  class="login100-form-btn ">
+                            Save & Generate PDF!
+                          </button>
+                        </div>
+                        <button type="button" style = "display:none;" id = "purpose-modal-btn" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                            Open modal
+                          </button>
+                          
+                          <!-- The Modal -->
+                          <div class="modal" id="myModal">
+                            <div class="modal-dialog modal-lg">
+                              <div class="modal-content">
+                          
+                                <!-- Modal Header -->
+                                <div class="modal-header">
+                                  <h6 class="modal-title">Please Fillout the Field - Purpose</h6>
+                                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                </div>
+                          
+                                <!-- Modal body -->
+                                <div class="modal-body">
+                                <label for="exampleInputEmail1" id="labelId">What business problem or technical challenge are you trying to overcome by filling this form?</label><br/>
+                                <br>
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+                                          <input type="radio" value = "Understanding if it is more cost effective to renew a data center contract or move infrastructure to the cloud." class="form-check-input" name="purpose">Understanding if it is more cost effective to renew a data center contract or move infrastructure to the cloud.
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input type="radio" value = "Predicting costs and performance of workloads that are moved to the cloud instead of maintained on-premise." class="form-check-input" name="purpose">Predicting costs and performance of workloads that are moved to the cloud instead of maintained on-premise.
+                                    </label>
+                                    </div>
+                                    <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input type="radio" value = "Evaluating cloud as a disaster recovery site which can be used when primary servers are down." class="form-check-input" name="purpose">Evaluating cloud as a disaster recovery site which can be used when primary servers are down.
+                                    </label>
+                                    </div>
+                                    <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input type="radio" value = "Looking at reducing on-premise storage investment by moving backup and archiving to cloud." class="form-check-input" name="purpose">Looking at reducing on-premise storage investment by moving backup and archiving to cloud.
+                                    </label>
+                                    </div>
+                                    <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input type="radio" value = "Trying to build a cloud migration roadmap and determining the optimal time and strategy for moving to the cloud."class="form-check-input" name="purpose">Trying to build a cloud migration roadmap and determining the optimal time and strategy for moving to the cloud.
+                                    </label>
+                                    </div>
+                                    <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input type="radio" value = "Looking to remove the manual work of assessment and planning for cloud migration." class="form-check-input" name="purpose">Looking to remove the manual work of assessment and planning for cloud migration.
+                                    </label>
+                                    </div>
+                                    <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input type="radio" value = "Evaluating cloud for DevOps, application development, adhoc infrastructure needs, web site hosting." class="form-check-input" name="purpose">Evaluating cloud for DevOps, application development, adhoc infrastructure needs, web site hosting.
+                                    </label>
+                                    </div>
+                   
+                             
+                                <div>
+ 
+                                    
+                                    <div class="alert alert-warning col-md-12" style="display:none" id="error_msg_purpose">
+                                              Please select an option !!!
+                                    </div>
+          
+                                </div>                           
+                                 
+                                
+                                
+                                </div>
+                          
+                                <!-- Modal footer -->
+                                <div class="modal-btns">
+                                    
+                                    <button type="button" id = "pupose-close" class="btn btn-danger pull-left" data-dismiss="modal">Close</button>
+                                    <button type="button" id = "pupose-save" class="btn btn-primary pull-right" >Save</button>
+                                  
+                                </div>
+                          
+                              </div>
+                            </div>
+                          </div>
+                      </div>
+                    </wizard-step>
+     
+                  </form-wizard>
+                </div>
+              </section>
+              <div class="hidden" style="width: 300px;"></div>
+                
+            </div>    
+          </div>
+        </div>
+      </div>
+  
+
+
+
+    <footer class="page-footer font-small  darken-3" >    
+      <div class="container">
+        <div class="row">
+        </div>  
+      </div>
+
+      <div class="footer-copyright text-center py-3">
+          <p style="text-align: center;">© Ingram Micro Cloud<br>
+            All product names, logos, and brands are property of their respective owners. All company, product and service names used in this website are for identification purposes only. Use of these names, logos, and brands does not imply endorsement.</p>
+      </div>
+    </footer>
+  </div>
+  
+  
